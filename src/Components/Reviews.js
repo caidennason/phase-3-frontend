@@ -48,9 +48,7 @@ function Reviews({id, name, artist, user, rating, deleteReview, userid, song, ha
             <Card style={{width:'18rem'}}>
                 <Card.Title>{name} - {artist}</Card.Title>
                 <Card.Text>Liked by {user.join(", ")}</Card.Text>
-                <view style={{flexDirection:"row"}}>
                 <Button style={{width:'5rem'}} onClick={handleDeleteClick}>Delete</Button>
-                </view>
             </Card>
             <Form onSubmit={handleSongUpdateSubmit}>
                 <input type="text" 
@@ -63,7 +61,7 @@ function Reviews({id, name, artist, user, rating, deleteReview, userid, song, ha
                 value={editArtistName} 
                 onChange={handleArtistEdit}
                 />
-                <Button type="submit"style={{width:'10rem'}}>Edit Reviewer</Button>
+                <Button type="submit"style={{width:'10rem'}}>Edit Songs</Button>
             </Form>
             <br></br>
         </div>

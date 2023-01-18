@@ -24,7 +24,7 @@ function App() {
   }
 
   function handleAddReview(newReview){
-    setSongs([...newReview, songs])
+    setSongs([...songs, newReview])
   }
 
   function handleAddSong(newSong){
@@ -53,7 +53,7 @@ function App() {
       <Card.Text>Make sure you are inputting the correct ID for each Song and User you are rating or editing, found below</Card.Text>
 
     {songs.map((s) => {
-      return <SongInformation name={s.song_name} id={s.id}/>
+      return <SongInformation key={s.id}name={s.song_name} id={s.id}/>
     })}
 
       <h2>Reviewers</h2>
