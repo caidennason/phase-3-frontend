@@ -17,8 +17,9 @@ function EditSong({handleUpdateSong, id}){
         setArtistName(e.target.value)
     }
 
-    const handleSongUpdateSubmit = (e)=>{
+    function handleSongUpdateSubmit(e){
         e.preventDefault()
+        console.log('preFetch', handleUpdateSong)
 
         fetch(`http://localhost:9292/songs/${id}`, {
             method: "PATCH",
@@ -31,8 +32,8 @@ function EditSong({handleUpdateSong, id}){
             }),
         })
             .then((r) => r.json())
+            .then(console.log('in the then ', handleUpdateSong))
             .then((updatedSong) => handleUpdateSong(updatedSong))
-            .then((updatedSong) => console.log(updatedSong))
     }
 
     return(

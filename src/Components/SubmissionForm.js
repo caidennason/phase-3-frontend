@@ -9,9 +9,6 @@ function SubmissionForm({handleUpdateSong, songs, deleteReview, handleAddReview,
     const [userID, setUserID] = useState('User ID')
     const [starRating, setStarRating] = useState('Amount of Stars (Must be a Number Between 1 and 10)')
 
-    // const [newSongName, setNewSongName] = useState('New Song Name')
-    // const [newArtistName, setNewArtistName] = useState('New Artist Name')
-
     function handleSongID(e){
         setSongID(e.target.value)
         console.log(e.target.value)
@@ -26,16 +23,6 @@ function SubmissionForm({handleUpdateSong, songs, deleteReview, handleAddReview,
         setStarRating(e.target.value)
         console.log(e.target.value)
     }
-
-    // function handleNewSongName(e){
-    //     console.log(e.target.value)
-    //     setNewSongName(e.target.value)
-    // }
-
-    // function handleNewArtistName(e){
-    //     console.log(e.target.value)
-    //     setNewArtistName(e.target.value)
-    // }
 
     function handleSubmit(e){
         e.preventDefault()
@@ -60,25 +47,6 @@ function SubmissionForm({handleUpdateSong, songs, deleteReview, handleAddReview,
             })
     }
 
-    // function handleSongSubmit(e){
-    //     e.preventDefault()
-
-    //     fetch("http://localhost:9292/songs", {
-    //         method: "POST",
-    //         headers: {
-    //             "Content-Type": "application/json",
-    //         },
-    //         body: JSON.stringify({
-    //             song_name: newSongName,
-    //             artist_name: newArtistName
-    //         }),
-    //     })
-    //         .then((resp) => resp.json())
-    //         .then((newSong) => {
-    //             handleAddSong(newSong)
-    //         })
-    // }
-
     return(
         <> 
         <h3>Submit a New Review</h3>
@@ -101,26 +69,6 @@ function SubmissionForm({handleUpdateSong, songs, deleteReview, handleAddReview,
             onChange={handleStarRating}/>
             <Button type="submit">Submit new Review</Button>
         </Form>
-
-        {/* <h3>Submit a New Song</h3>
-        <Form onSubmit={handleSongSubmit}>
-            <input
-            type="text"
-            name="name"
-            value={newSongName}
-            onChange={handleNewSongName}
-            />
-            <input
-            type="text"
-            name="name"
-            value={newArtistName}
-            onChange={handleNewArtistName}
-            />
-            <Button type="submit">Submit new Song</Button>
-        </Form> */}
-
-        
-        {/* <ReviewList handleUpdateSong={handleUpdateSong} songs={songs} deleteReview={deleteReview}/> */}
         </>
     )
 }

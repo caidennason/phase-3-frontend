@@ -23,7 +23,7 @@ function App() {
   function deleteReview(id){
     const updatedReviews = songs.filter((song) => song.id !== id)
     setSongs(updatedReviews)
-  }
+  }  
 
   function handleAddReview(newReview){
     setSongs([...newReview, songs])
@@ -33,7 +33,7 @@ function App() {
     setSongs([...songs, newSong])
   }
 
-  const handleUpdateSong = (updatedSongObj) => {
+  function handleUpdateSong(updatedSongObj){
     const updatedSongs = songs.map((song) => {
       if (song.id === updatedSongObj.id) {
         return updatedSongObj
@@ -65,7 +65,6 @@ function App() {
       <li>Aubrey Plaza: 4</li>
 
     </Card>
-    {/* <Test songs={songs}/> */}
     <NewSongForm handleAddSong={handleAddSong}/>
     <SubmissionForm handleAddSong={handleAddSong} handleUpdateSong={handleUpdateSong} handleAddReview={handleAddReview} songs={songs} deleteReview={deleteReview}/>
     <ReviewList handleUpdateSong={handleUpdateSong} songs={songs} deleteReview={deleteReview}/>
