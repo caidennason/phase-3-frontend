@@ -9,8 +9,8 @@ function SubmissionForm({handleUpdateSong, songs, deleteReview, handleAddReview,
     const [userID, setUserID] = useState('User ID')
     const [starRating, setStarRating] = useState('Amount of Stars (Must be a Number Between 1 and 10)')
 
-    const [newSongName, setNewSongName] = useState('New Song Name')
-    const [newArtistName, setNewArtistName] = useState('New Artist Name')
+    // const [newSongName, setNewSongName] = useState('New Song Name')
+    // const [newArtistName, setNewArtistName] = useState('New Artist Name')
 
     function handleSongID(e){
         setSongID(e.target.value)
@@ -27,20 +27,20 @@ function SubmissionForm({handleUpdateSong, songs, deleteReview, handleAddReview,
         console.log(e.target.value)
     }
 
-    function handleNewSongName(e){
-        console.log(e.target.value)
-        setNewSongName(e.target.value)
-    }
+    // function handleNewSongName(e){
+    //     console.log(e.target.value)
+    //     setNewSongName(e.target.value)
+    // }
 
-    function handleNewArtistName(e){
-        console.log(e.target.value)
-        setNewArtistName(e.target.value)
-    }
+    // function handleNewArtistName(e){
+    //     console.log(e.target.value)
+    //     setNewArtistName(e.target.value)
+    // }
 
     function handleSubmit(e){
         e.preventDefault()
         
-        fetch("http://localhost:9292/reviews", { // multiple post requests?
+        fetch("http://localhost:9292/reviews", { 
             method: "POST", 
             headers: {
                 "Content-Type": "application/json",
@@ -60,24 +60,24 @@ function SubmissionForm({handleUpdateSong, songs, deleteReview, handleAddReview,
             })
     }
 
-    function handleSongSubmit(e){
-        e.preventDefault()
+    // function handleSongSubmit(e){
+    //     e.preventDefault()
 
-        fetch("http://localhost:9292/songs", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                song_name: newSongName,
-                artist_name: newArtistName
-            }),
-        })
-            .then((resp) => resp.json())
-            .then((newSong) => {
-                handleAddSong(newSong)
-            })
-    }
+    //     fetch("http://localhost:9292/songs", {
+    //         method: "POST",
+    //         headers: {
+    //             "Content-Type": "application/json",
+    //         },
+    //         body: JSON.stringify({
+    //             song_name: newSongName,
+    //             artist_name: newArtistName
+    //         }),
+    //     })
+    //         .then((resp) => resp.json())
+    //         .then((newSong) => {
+    //             handleAddSong(newSong)
+    //         })
+    // }
 
     return(
         <> 
@@ -102,7 +102,7 @@ function SubmissionForm({handleUpdateSong, songs, deleteReview, handleAddReview,
             <Button type="submit">Submit new Review</Button>
         </Form>
 
-        <h3>Submit a New Song</h3>
+        {/* <h3>Submit a New Song</h3>
         <Form onSubmit={handleSongSubmit}>
             <input
             type="text"
@@ -117,10 +117,10 @@ function SubmissionForm({handleUpdateSong, songs, deleteReview, handleAddReview,
             onChange={handleNewArtistName}
             />
             <Button type="submit">Submit new Song</Button>
-        </Form>
+        </Form> */}
 
         
-        <ReviewList handleUpdateSong={handleUpdateSong} songs={songs} deleteReview={deleteReview}/>
+        {/* <ReviewList handleUpdateSong={handleUpdateSong} songs={songs} deleteReview={deleteReview}/> */}
         </>
     )
 }

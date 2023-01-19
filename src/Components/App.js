@@ -3,6 +3,8 @@ import React, {useState, useEffect} from "react"
 import Card from 'react-bootstrap/Card'
 import SubmissionForm from "./SubmissionForm";
 import SongInformation from "./SongInformation";
+import NewSongForm from "./NewSongForm";
+import Test from "./Test"
 import ReviewList from "./ReviewList";
 import Reviews from "./Reviews";
 import { CardActionArea } from "@mui/material";
@@ -24,14 +26,14 @@ function App() {
   }
 
   function handleAddReview(newReview){
-    setSongs([...songs, newReview])
+    setSongs([...newReview, songs])
   }
 
   function handleAddSong(newSong){
     setSongs([...songs, newSong])
   }
 
-  function handleUpdateSong(updatedSongObj){
+  const handleUpdateSong = (updatedSongObj) => {
     const updatedSongs = songs.map((song) => {
       if (song.id === updatedSongObj.id) {
         return updatedSongObj
@@ -49,11 +51,11 @@ function App() {
     <>
     <Card>
       <Card.Title>Rate Some of Your Favorite Songs</Card.Title>
-      <Card.Text>Rate a few of my favorite songs! This project allows you to rate your favorite songs as 4 different creative people</Card.Text>
+      <Card.Text>Rate a few of your favorite songs! This project allows you to rate your favorite songs as 4 different creative people</Card.Text>
       <Card.Text>Make sure you are inputting the correct ID for each Song and User you are rating or editing, found below</Card.Text>
 
     {songs.map((s) => {
-      return <SongInformation key={s.id}name={s.song_name} id={s.id}/>
+      return <SongInformation name={s.song_name} id={s.id}/>
     })}
 
       <h2>Reviewers</h2>
@@ -63,8 +65,11 @@ function App() {
       <li>Aubrey Plaza: 4</li>
 
     </Card>
-
+    {/* <Test songs={songs}/> */}
+    <NewSongForm handleAddSong={handleAddSong}/>
     <SubmissionForm handleAddSong={handleAddSong} handleUpdateSong={handleUpdateSong} handleAddReview={handleAddReview} songs={songs} deleteReview={deleteReview}/>
+    <ReviewList handleUpdateSong={handleUpdateSong} songs={songs} deleteReview={deleteReview}/>
+
     </>
   );
 }

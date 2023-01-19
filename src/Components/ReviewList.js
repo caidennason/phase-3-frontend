@@ -8,8 +8,10 @@ function ReviewList({songs, deleteReview, handleUpdateReview}){
 
     return(
         <div>
-        {songs?.map((song) => {
-            return <Reviews handleUpdateReview={handleUpdateReview} song={song} key={song.id} deleteReview={deleteReview} id={song.id} name={song.song_name} artist={song.artist_name} user={song.users?.map((u) => u.full_name)} />
+       
+        {songs.map((song) => {
+            console.log(song.users)
+            return <Reviews handleUpdateReview={handleUpdateReview} song={song} key={song.id} deleteReview={deleteReview} id={song.id} name={song.song_name} artist={song.artist_name} user={song?.users?.map((u) => u?.full_name)} />
         })}
         </div>
     )
