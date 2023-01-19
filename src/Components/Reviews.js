@@ -3,7 +3,7 @@ import Card from "react-bootstrap/Card"
 import Button from "react-bootstrap/Button"
 import EditSong from "./EditSong"
 
-function Reviews({id, name, artist, user, rating, deleteReview, userid, song, handleUpdateSong}){
+function Reviews({id, name, artist, user, rating, deleteReview, userId, song, handleUpdateSong}){
 
     function handleDeleteClick(){
         fetch(`http://localhost:9292/songs/${id}`, {
@@ -13,12 +13,11 @@ function Reviews({id, name, artist, user, rating, deleteReview, userid, song, ha
         deleteReview(id)
     }
 
-    console.log(user)
     return(
         <div>
             <Card style={{width:'18rem'}}>
                 <Card.Title>{name} - {artist}</Card.Title>
-                <Card.Text>{rating} Liked by {user?.join(", ")}</Card.Text>
+                <Card.Text>{rating.join(', ')} Liked by Reviewer {userId?.join(", Reviewer ")}</Card.Text>
                 <Button style={{width:'5rem'}} onClick={handleDeleteClick}>Delete</Button>
             </Card>
 

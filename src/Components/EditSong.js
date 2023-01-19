@@ -8,18 +8,15 @@ function EditSong({handleUpdateSong, id}){
     const [editArtistName, setArtistName] = useState('Edit Artist Name')
 
     function handleSongEdit(e){
-        console.log(e.target.value)
         setSongName(e.target.value)
     }
 
     function handleArtistEdit(e){
-        console.log(e.target.value)
         setArtistName(e.target.value)
     }
 
     function handleSongUpdateSubmit(e){
         e.preventDefault()
-        console.log('preFetch', handleUpdateSong)
 
         fetch(`http://localhost:9292/songs/${id}`, {
             method: "PATCH",
@@ -32,7 +29,6 @@ function EditSong({handleUpdateSong, id}){
             }),
         })
             .then((r) => r.json())
-            .then(console.log('in the then ', handleUpdateSong))
             .then((updatedSong) => handleUpdateSong(updatedSong))
     }
 

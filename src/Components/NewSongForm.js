@@ -8,12 +8,10 @@ function NewSongForm({handleAddSong}){
     const [newArtistName, setNewArtistName] = useState('New Artist Name')
 
     function handleNewSongName(e){
-        console.log(e.target.value)
         setNewSongName(e.target.value)
     }
 
     function handleNewArtistName(e){
-        console.log(e.target.value)
         setNewArtistName(e.target.value)
     }
 
@@ -35,7 +33,6 @@ function NewSongForm({handleAddSong}){
                 handleAddSong(newSong)
                 setNewSongName('New Song Name')
                 setNewArtistName('New Artist Name')
-                console.log(newSong)
             })
     }
 

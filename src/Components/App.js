@@ -4,7 +4,6 @@ import Card from 'react-bootstrap/Card'
 import SubmissionForm from "./SubmissionForm";
 import SongInformation from "./SongInformation";
 import NewSongForm from "./NewSongForm";
-import Test from "./Test"
 import ReviewList from "./ReviewList";
 import Reviews from "./Reviews";
 import { CardActionArea } from "@mui/material";
@@ -14,11 +13,14 @@ function App() {
 
   const [songs, setSongs] = useState([])
 
+  console.log(songs)
+
   useEffect(()=> {
     fetch("http://localhost:9292/songs")
       .then((r) => r.json())
       .then((data) => setSongs(data));
   }, [])
+
 
   function deleteReview(id){
     const updatedReviews = songs.filter((song) => song.id !== id)
@@ -32,8 +34,7 @@ function App() {
       } 
         return s
     })
-    console.log(newReview)
-    console.log(addedReview)
+
     setSongs(addedReview) // add songs.review?
   }
 
@@ -51,8 +52,6 @@ function App() {
     })
     setSongs(updatedSongs)
   }
-
-   console.log('lets get the reviews', songs.map((s) => s.reviews))
 
   return (
 

@@ -11,17 +11,14 @@ function SubmissionForm({handleUpdateSong, songs, deleteReview, handleAddReview,
 
     function handleSongID(e){
         setSongID(e.target.value)
-        console.log(e.target.value)
     }
 
     function handleUserID(e){
         setUserID(e.target.value)
-        console.log(e.target.value)
     }
 
     function handleStarRating(e){
         setStarRating(e.target.value)
-        console.log(e.target.value)
     }
 
     function handleSubmit(e){
@@ -41,10 +38,9 @@ function SubmissionForm({handleUpdateSong, songs, deleteReview, handleAddReview,
             .then((r) => r.json())
             .then((newReview) => {
                 handleAddReview(newReview)
-                console.log(newReview)
-                // setSongID("Song ID")
-                // setUserID("User ID")
-                // setStarRating("Amount of Stars (Must be a Number Between 1 and 10)")
+                setSongID("Song ID")
+                setUserID("User ID")
+                setStarRating("Amount of Stars (Must be a Number Between 1 and 10)")
             })
     }
 
