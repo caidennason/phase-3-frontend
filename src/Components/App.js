@@ -13,8 +13,6 @@ function App() {
 
   const [songs, setSongs] = useState([])
 
-  console.log(songs)
-
   useEffect(()=> {
     fetch("http://localhost:9292/songs")
       .then((r) => r.json())

@@ -37,6 +37,7 @@ function SubmissionForm({handleUpdateSong, songs, deleteReview, handleAddReview,
         })
             .then((r) => r.json())
             .then((newReview) => {
+                console.log(newReview)
                 handleAddReview(newReview)
                 setSongID("Song ID")
                 setUserID("User ID")
