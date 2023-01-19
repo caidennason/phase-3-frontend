@@ -1,7 +1,7 @@
 import React from "react"
 import Reviews from "./Reviews"
 
-function ReviewList({songs, deleteReview, handleUpdateReview, handleUpdateSong}){
+function ReviewList({songs, deleteReview, handleUpdateReview}){
 
     console.log(songs)
    
@@ -11,7 +11,7 @@ function ReviewList({songs, deleteReview, handleUpdateReview, handleUpdateSong})
        
         {songs.map((song) => {
             console.log(song.users)
-            return <Reviews handleUpdateSong={handleUpdateSong}handleUpdateReview={handleUpdateReview} song={song} key={song.id} deleteReview={deleteReview} id={song.id} name={song.song_name} artist={song.artist_name} user={song?.users?.map((u) => u?.full_name)} />
+            return <Reviews handleUpdateReview={handleUpdateReview} song={song} key={song.id} deleteReview={deleteReview} id={song.id} name={song.song_name} artist={song.artist_name} rating={song.reviews.map((r) => r.star_rating)} />
         })}
         </div>
     )

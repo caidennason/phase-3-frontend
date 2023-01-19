@@ -26,7 +26,15 @@ function App() {
   }  
 
   function handleAddReview(newReview){
-    setSongs([...newReview, songs])
+    const addedReview = songs.map((s) => {
+      if (s.id === newReview.song_id) {
+        s.reviews.push(newReview) //s.reviews.push(newReview) ?
+      } 
+        return s
+    })
+    console.log(newReview)
+    console.log(addedReview)
+    setSongs(addedReview) // add songs.review?
   }
 
   function handleAddSong(newSong){
@@ -44,7 +52,7 @@ function App() {
     setSongs(updatedSongs)
   }
 
-   console.log(songs)
+   console.log('lets get the reviews', songs.map((s) => s.reviews))
 
   return (
 
