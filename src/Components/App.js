@@ -45,6 +45,7 @@ function App() {
   function handleUpdateSong(updatedSongObj){
     const updatedSongs = songs.map((song) => {
       if (song.id === updatedSongObj.id) {
+        console.log(updatedSongObj)
         return updatedSongObj
       } else {
         return song
