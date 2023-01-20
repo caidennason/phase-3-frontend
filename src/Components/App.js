@@ -19,6 +19,8 @@ function App() {
       .then((data) => setSongs(data));
   }, [])
 
+  console.log(songs)
+
 
   function deleteReview(id){
     const updatedReviews = songs.filter((song) => song.id !== id)
@@ -28,12 +30,12 @@ function App() {
   function handleAddReview(newReview){
     const addedReview = songs.map((s) => {
       if (s.id === newReview.song_id) {
-        s.reviews.push(newReview) //s.reviews.push(newReview) ?
+        s.reviews?.push(newReview)
       } 
         return s
     })
 
-    setSongs(addedReview) // add songs.review?
+    setSongs(addedReview) 
   }
 
   function handleAddSong(newSong){

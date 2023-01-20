@@ -18,6 +18,8 @@ function EditSong({handleUpdateSong, id}){
     function handleSongUpdateSubmit(e){
         e.preventDefault()
 
+        console.log('preFetch', handleUpdateSong)
+
         fetch(`http://localhost:9292/songs/${id}`, {
             method: "PATCH",
             headers: {
@@ -30,6 +32,8 @@ function EditSong({handleUpdateSong, id}){
         })
             .then((r) => r.json())
             .then((updatedSong) => handleUpdateSong(updatedSong))
+            setSongName('Edit Song Name')
+            setArtistName('Edit Artist Name')
     }
 
     return(

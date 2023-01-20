@@ -17,7 +17,8 @@ function Reviews({id, name, artist, user, rating, deleteReview, userId, song, ha
         <div>
             <Card style={{width:'18rem'}}>
                 <Card.Title>{name} - {artist}</Card.Title>
-                <Card.Text>{rating.join(', ')} Stars Liked by Reviewer {userId?.join(", Reviewer ")}</Card.Text>
+                <Card.Text>{rating?.join(' ⭐️ ')} ⭐️</Card.Text>
+                <Card.Text>User {userId?.join(", User ")}</Card.Text>
                 <Button style={{width:'5rem'}} onClick={handleDeleteClick}>Delete</Button>
             </Card>
 
